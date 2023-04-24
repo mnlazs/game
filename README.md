@@ -35,7 +35,7 @@ This project is interpreted/tested on Ubuntu 14.04 LTS using python3 (version 3.
 * `cloud8.png` - Gray cloud graphic.
 * `cloud9.png` - Gray cloud graphic.
 * `cloud10.png` - Gray cloud graphic.
-* `cloud11.png` - Light graphic cloud.
+* `cloud11.png` - Blue graphic cloud.
 * `cloud12.png` - Blue cloud graphic.
 * `cloud13.png` - Blue cloud graphic.
 * `cloud14.png` - Blue cloud graphic.
