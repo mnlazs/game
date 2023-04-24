@@ -56,7 +56,7 @@ import pygame
 import random
 ```
 
-2.Constants such as the width and height of the screen, and colors in RGB are defined.
+2. Constants such as the width and height of the screen, and colors in RGB are defined.
 ```
 WIDTH = 1138
 HEIGHT = 640
@@ -65,7 +65,7 @@ WHITE = (255, 255, 255)
 GREEN = (0, 255, 0)
 ```
 
-3.Pygame and its sound mixer are initialized. Then a window is created with the defined screen size.
+3. Pygame and its sound mixer are initialized. Then a window is created with the defined screen size.
 ```
 pygame.init()
 pygame.mixer.init()
@@ -74,7 +74,7 @@ pygame.display.set_caption("Shooter")
 clock = pygame.time.Clock()
 ```
 
-4.The draw_text function is defined, which will be used later to draw text on the screen.
+4. The draw_text function is defined, which will be used later to draw text on the screen.
 ```
 def draw_text(surface, text, size, x, y):
     font = pygame.font.SysFont("games", size)
@@ -84,7 +84,7 @@ def draw_text(surface, text, size, x, y):
     surface.blit(text_surface, text_rect)
 ```
 
-5.The draw_shield_bar function is defined, which is used to display a shield bar on the screen.
+5. The draw_shield_bar function is defined, which is used to display a shield bar on the screen.
 ```
 def draw_shield_bar(surface, x, y, percentage):
     BAR_LENGHT = 100
@@ -96,7 +96,7 @@ def draw_shield_bar(surface, x, y, percentage):
     pygame.draw.rect(surface, WHITE, border, 2)
 ```
 
-6.The Player class is defined, which is the object controlled by the player in the game. It has methods to move and shoot.
+6. The Player class is defined, which is the object controlled by the player in the game. It has methods to move and shoot.
 ```
 class Player(pygame.sprite.Sprite):
 	def __init__(self):
@@ -110,7 +110,7 @@ class Player(pygame.sprite.Sprite):
 		self.shield = 100
 ```
 
-7.The cloud class is defined, which represents the clouds that fall from the top of the screen.
+7. The cloud class is defined, which represents the clouds that fall from the top of the screen.
 ```
 class Meteor(pygame.sprite.Sprite):
 	def __init__(self):
@@ -132,9 +132,9 @@ class Meteor(pygame.sprite.Sprite):
 			self.speedy = random.randrange(1, 8) 
 ```
 
-8.The Cloud class is defined, which is the object that the player shoots to destroy the clouds.
+8. The Cloud class is defined, which is the object that the player shoots to destroy the clouds.
 ```
-class Bullet(pygame.sprite.Sprite):
+class Cloud(pygame.sprite.Sprite):
 	def __init__(self, x, y):
 		super(). __init__()
 		self.image = pygame.image.load("lasser1.png")
@@ -150,7 +150,7 @@ class Bullet(pygame.sprite.Sprite):
 			self.kill()
 ```
 
-9.The show_go_screen function is defined, which displays the game's start screen.
+9. The show_go_screen function is defined, which displays the game's start screen.
 ```
 def show_go_screen():
 	screen.blit(background, [0, 0])
@@ -169,7 +169,7 @@ def show_go_screen():
 
 ```
 
-10.A list of meteor images is loaded into the variable meteor_images.
+10. A list of meteor images is loaded into the variable meteor_images.
 ```
 meteor_images = []
 meteor_list = ["cloud1.png", "cloud2.png", "cloud3.png", "cloud4.png", "cloud5.png", "cloud6.png", "cloud7.png", "cloud8.png", "cloud9.png", "cloud10.png",
@@ -179,7 +179,7 @@ for img in meteor_list:
 
 ```
 
-11.A list of explosion images is loaded into the explosion_anim variable.
+11. A list of explosion images is loaded into the explosion_anim variable.
 ```
 explosion_anim = []
 for i in range(9):
@@ -190,7 +190,7 @@ for i in range(9):
         explosion_anim.append(img_scale)
 ```
 
-12.The Explosion class is defined, which is used to animate an explosion when a collision occurs.
+12. The Explosion class is defined, which is used to animate an explosion when a collision occurs.
 ```
 class Explosion(pygame.sprite.Sprite):
     def __init__(self, center):
