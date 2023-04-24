@@ -132,7 +132,7 @@ class Meteor(pygame.sprite.Sprite):
 			self.speedy = random.randrange(1, 8) 
 ```
 
-8.The Bullet class is defined, which is the object that the player shoots to destroy the clouds.
+8.The Cloud class is defined, which is the object that the player shoots to destroy the clouds.
 ```
 class Bullet(pygame.sprite.Sprite):
 	def __init__(self, x, y):
