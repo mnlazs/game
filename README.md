@@ -19,10 +19,13 @@ List of extnsions:
 * `sound.mp3` - Effects and background music of the game
 * `files.png` - Game graphics
 * `mycloud.py` - main file where the code is written
+* `Games.ttf` - typography
 
 ### Assets:
 
+
 * `player.png`
+* `Games.ttf`
 * `sound1.mp3`
 * `sound2.mp3`
 * `sound3.mp3`
@@ -54,18 +57,25 @@ List of extnsions:
 * `regularExplosion08.png`
 
 
-## How to use the console:
+## Code Structure with examples
 
-|   **Method**   |   **Description**   |
-| -------------- | --------------------- |
-|[create](./console.py) | Creates object of given class |
-|[show](./console.py) | Prints the string representation of an instance based on the class name and id |
-|[all](./console.py) | Prints all string representation of all instances based or not on the class name |
-|[update](./console.py) | Updates an instance based on the class name and id by adding or updating attribute (save the change into the JSON file) |
-|[destroy](./console.py)| Deletes an instance based on the class name and id (save the change into the JSON file) |
-|[count](./console.py)| Retrieve the number of instances of a class |
-|[help](./console.py)| Prints information about specific command |
-|[quit/ EOF](./console.py)| Exit the program |
+1. The pygame and random libraries are imported first.
+```
+import pygame
+import random
+```
+
+2.Constants such as the width and height of the screen, and colors in RGB are defined.
+3.Pygame and its sound mixer are initialized. Then a window is created with the defined screen size.
+4.The draw_text function is defined, which will be used later to draw text on the screen.
+5.The draw_shield_bar function is defined, which is used to display a shield bar on the screen.
+6.The Player class is defined, which is the object controlled by the player in the game. It has methods to move and shoot.
+7.The Meteor class is defined, which represents the meteors that fall from the top of the screen.
+8.The Bullet class is defined, which is the object that the player shoots to destroy the meteors.
+9.The show_go_screen function is defined, which displays the game's start screen.
+10.A list of meteor images is loaded into the variable meteor_images.
+11.A list of explosion images is loaded into the explosion_anim variable.
+12.The Explosion class is defined, which is used to animate an explosion when a collision occurs.
 
 ## Examples: 
 
