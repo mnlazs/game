@@ -13,21 +13,46 @@ manuelzambrano@Manuels-MacBook-Pro game % python3 mycloud.py
 ## Environment
 This project is interpreted/tested on Ubuntu 14.04 LTS using python3 (version 3.4.3)
 
-## File Descriptions
+## File Descriptions & Assets
 A brief explanation of what is the purpose of each file according to its extension
 List of extnsions:
 * `sound.mp3` - Effects and background music of the game
 * `files.png` - Game graphics
 * `mycloud.py` - main file where the code is written
 
+### Assets:
 
+* `player.png`
+* `sound1.mp3`
+* `sound2.mp3`
+* `sound3.mp3`
+* `cloud1.png`
+* `cloud2.png`
+* `cloud3.png`
+* `cloud4.png`
+* `cloud5.png`
+* `cloud6.png`
+* `cloud7.png`
+* `cloud8.png`
+* `cloud9.png`
+* `mycloud.py`
+* `cloud10.png`
+* `cloud11.png`
+* `cloud12.png`
+* `cloud13.png`
+* `cloud14.png`
+* `cloud15.png`
+* `lasser.png`
+* `background.png`
+* `regularExplosion00.png`
+* `regularExplosion01.png`
+* `regularExplosion02.png`
+* `regularExplosion03.png`
+* `regularexgplosion04.png`
+* `regularExplosion05.png`
+* `regularExplosion06.png`
+* `regularExplosion08.png`
 
-## Assets:
-
-Clone the repository and run the console.py
-```
-$ git clone https://github.com/------/holbertonschool-AirBnB_clone.git
-```
 
 ## How to use the console:
 
