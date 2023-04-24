@@ -110,7 +110,7 @@ class Player(pygame.sprite.Sprite):
 		self.shield = 100
 ```
 
-7. The cloud class is defined, which represents the clouds that fall from the top of the screen.
+7. The Cloud class is defined, which represents the clouds that fall from the top of the screen.
 ```
 class Meteor(pygame.sprite.Sprite):
 	def __init__(self):
@@ -169,13 +169,13 @@ def show_go_screen():
 
 ```
 
-10. A list of meteor images is loaded into the variable meteor_images.
+10. A list of cloud images is loaded into the variable cloud_images.
 ```
-meteor_images = []
-meteor_list = ["cloud1.png", "cloud2.png", "cloud3.png", "cloud4.png", "cloud5.png", "cloud6.png", "cloud7.png", "cloud8.png", "cloud9.png", "cloud10.png",
+cloud_images = []
+cloud_list = ["cloud1.png", "cloud2.png", "cloud3.png", "cloud4.png", "cloud5.png", "cloud6.png", "cloud7.png", "cloud8.png", "cloud9.png", "cloud10.png",
             	"cloud11.png", "cloud12.png", "cloud13.png", "cloud14.png", "cloud15.png"]
-for img in meteor_list:
-    meteor_images.append(pygame.image.load(img).convert())
+for img in cloud_list:
+    cloud_images.append(pygame.image.load(img).convert())
 
 ```
 
