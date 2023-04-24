@@ -218,7 +218,7 @@ class Explosion(pygame.sprite.Sprite):
                 self.rect.center = center
 ```
 
-## Authors:
+## Authors
 
 :technologist: Nathen Willians - [Github](https://github.com/Alleywaynate)  
 :man_singer: Manuel Zambrano - [Github](https://github.com/mnlazs)  
