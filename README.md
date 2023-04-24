@@ -220,6 +220,6 @@ class Explosion(pygame.sprite.Sprite):
 
 ## Authors
 
-:technologist: Nathen Willians - [Github](https://github.com/Alleywaynate)  
+:ninja: Nathen Willians - [Github](https://github.com/Alleywaynate)  
 :man_singer: Manuel Zambrano - [Github](https://github.com/mnlazs)  
 :firefighter: Dae Thomas - [Github](https://github.com/)
