@@ -66,72 +66,167 @@ import random
 ```
 
 2.Constants such as the width and height of the screen, and colors in RGB are defined.
-‘‘‘
+```
 WIDTH = 1138
 HEIGHT = 640
 BLACK = (0, 0, 0)
 WHITE = (255, 255, 255)
 GREEN = (0, 255, 0)
-‘‘‘
+```
+
 3.Pygame and its sound mixer are initialized. Then a window is created with the defined screen size.
+```
+pygame.init()
+pygame.mixer.init()
+screen = pygame.display.set_mode((WIDTH, HEIGHT))
+pygame.display.set_caption("Shooter")
+clock = pygame.time.Clock()
+```
+
 4.The draw_text function is defined, which will be used later to draw text on the screen.
+```
+def draw_text(surface, text, size, x, y):
+    font = pygame.font.SysFont("games", size)
+    text_surface = font.render(text, True, (255, 255, 255))
+    text_rect = text_surface.get_rect()
+    text_rect.midtop = (x, y)
+    surface.blit(text_surface, text_rect)
+```
+
 5.The draw_shield_bar function is defined, which is used to display a shield bar on the screen.
+```
+def draw_shield_bar(surface, x, y, percentage):
+    BAR_LENGHT = 100
+    BAR_HEIGHT = 10
+    fill = (percentage / 100) * BAR_LENGHT
+    border = pygame.Rect(x, y, BAR_LENGHT, BAR_HEIGHT)
+    fill = pygame.Rect (x, y, fill, BAR_HEIGHT)
+    pygame.draw.rect(surface, GREEN, fill)
+    pygame.draw.rect(surface, WHITE, border, 2)
+```
+
 6.The Player class is defined, which is the object controlled by the player in the game. It has methods to move and shoot.
-7.The Meteor class is defined, which represents the meteors that fall from the top of the screen.
-8.The Bullet class is defined, which is the object that the player shoots to destroy the meteors.
+```
+class Player(pygame.sprite.Sprite):
+	def __init__(self):
+		super().__init__()
+		self.image = pygame.image.load("player.png").convert()
+		self.image.set_colorkey(BLACK)
+		self.rect = self.image.get_rect()
+		self.rect.centerx = WIDTH // 2
+		self.rect.bottom = HEIGHT - 10
+		self.speed_x = 0
+		self.shield = 100
+```
+
+7.The cloud class is defined, which represents the clouds that fall from the top of the screen.
+```
+class Meteor(pygame.sprite.Sprite):
+	def __init__(self):
+		super().__init__()
+		self.image = random.choice(meteor_images)
+		self.image.set_colorkey(BLACK)
+		self.rect = self.image.get_rect()
+		self.rect.x = random.randrange(WIDTH - self.rect.width)
+		self.rect.y = random.randrange(-150, -100)
+		self.speedy = random.randrange(1, 10) # velocidad de las nubes
+		self.speedx = random.randrange(-5, 5)
+	
+	def update(self):
+		self.rect.x += self.speedx
+		self.rect.y += self.speedy
+		if self.rect.top > HEIGHT + 10 or self.rect.left < -40 or self.rect.right > WIDTH + 22 :
+			self.rect.x = random.randrange(WIDTH - self.rect.width)
+			self.rect.y = random.randrange(-100, -40)
+			self.speedy = random.randrange(1, 8) 
+```
+
+8.The Bullet class is defined, which is the object that the player shoots to destroy the clouds.
+```
+class Bullet(pygame.sprite.Sprite):
+	def __init__(self, x, y):
+		super(). __init__()
+		self.image = pygame.image.load("lasser1.png")
+		self.image.set_colorkey(BLACK)
+		self.rect = self.image.get_rect()
+		self.rect.y = y
+		self.rect.centerx = x
+		self.speedy = -10
+
+	def update(self):
+		self.rect.y += self.speedy
+		if self.rect.bottom < 0:
+			self.kill()
+```
+
 9.The show_go_screen function is defined, which displays the game's start screen.
+```
+def show_go_screen():
+	screen.blit(background, [0, 0])
+	draw_text(screen, "The Zeus Cloud", 65, WIDTH // 2, HEIGHT / 4)
+	draw_text(screen, "ZEUS GAME", 35, WIDTH // 2, HEIGHT // 2)
+	draw_text(screen, "Press any key to begin", 30, WIDTH //2, HEIGHT * 3/4)
+	pygame.display.flip()
+	waiting = True
+	while waiting:
+		clock.tick(60)
+		for event in pygame.event.get():
+			if event.type == pygame.QUIT:
+					pygame.quit()
+			if event.type == pygame.KEYUP:
+					waiting = False
+
+```
+
 10.A list of meteor images is loaded into the variable meteor_images.
+```
+meteor_images = []
+meteor_list = ["cloud1.png", "cloud2.png", "cloud3.png", "cloud4.png", "cloud5.png", "cloud6.png", "cloud7.png", "cloud8.png", "cloud9.png", "cloud10.png",
+            	"cloud11.png", "cloud12.png", "cloud13.png", "cloud14.png", "cloud15.png"]
+for img in meteor_list:
+    meteor_images.append(pygame.image.load(img).convert())
+
+```
+
 11.A list of explosion images is loaded into the explosion_anim variable.
+```
+explosion_anim = []
+for i in range(9):
+        file = "regularExplosion0{}.png".format(i)
+        img = pygame.image.load(file).convert()
+        img.set_colorkey(BLACK)
+        img_scale = pygame.transform.scale(img, (70, 70))
+        explosion_anim.append(img_scale)
+```
+
 12.The Explosion class is defined, which is used to animate an explosion when a collision occurs.
-
-## Examples: 
-
 ```
-➜  AirBnB_clone git:(feature) ✗ ./console.py
-(hbnb) create User
-bb4f4b81-7757-460b-9263-743c9ea6fef6
-(hbnb) show User bb4f4b81-7757-460b-9263-743c9ea6fef6
-[User] (bb4f4b81-7757-460b-9263-743c9ea6fef6) {'updated_at': datetime.datetime(2019, 11, 13, 17, 7, 45, 492139), 'id': 'bb4f4b81-7757-460b-9263-743c9ea6fef6', 'created_at': datetime.datetime(2019, 11, 13, 17, 7, 45, 492106)}
-(hbnb) all User
-["[User] (bb4f4b81-7757-460b-9263-743c9ea6fef6) {'updated_at': datetime.datetime(2019, 11, 13, 17, 7, 45, 492139), 'id': 'bb4f4b81-7757-460b-9263-743c9ea6fef6', 'created_at': datetime.datetime(2019, 11, 13, 17, 7, 45, 492106)}"]
-(hbnb) update User bb4f4b81-7757-460b-9263-743c9ea6fef6 name Betty
-['User', 'bb4f4b81-7757-460b-9263-743c9ea6fef6', 'name', 'Betty']
-(hbnb) all User
-["[User] (bb4f4b81-7757-460b-9263-743c9ea6fef6) {'updated_at': datetime.datetime(2019, 11, 13, 17, 7, 45, 492139), 'id': 'bb4f4b81-7757-460b-9263-743c9ea6fef6', 'name': 'Betty', 'created_at': datetime.datetime(2019, 11, 13, 17, 7, 45, 492106)}"]
-(hbnb) destroy User bb4f4b81-7757-460b-9263-743c9ea6fef6
-(hbnb) all User
-[]
-(hbnb) show User
-** instance id missing **
-(hbnb)
+class Explosion(pygame.sprite.Sprite):
+    def __init__(self, center):
+        super().__init__()
+        self.image = explosion_anim[0]
+        self.rect = self.image.get_rect()
+        self.rect.center = center
+        self.frame = 0
+        self.last_update = pygame.time.get_ticks()
+        self.frame_rate = 50 #VELOCIDAD DE LA EXPLOSION
+        
+    def update(self):
+        now = pygame.time.get_ticks()
+        if now - self.last_update > self.frame_rate:
+            self.last_update = now
+            self.frame +=1
+            if self.frame ==len(explosion_anim):
+                self.kill()
+            else:
+                center = self.rect.center
+                self.image = explosion_anim[self.frame]
+                self.rect = self.image.get_rect()
+                self.rect.center = center
 
-```
-
-```
-➜  AirBnB_clone git:(feature) ✗ ./console.py
-(hbnb) User.create
-*** Unknown syntax: User.create
-(hbnb) User.create()
-e6ee5344-04ef-454d-84e4-ba6fc613f1b4
-(hbnb) User.all()
-["[User] (e6ee5344-04ef-454d-84e4-ba6fc613f1b4) {'id': 'e6ee5344-04ef-454d-84e4-ba6fc613f1b4', 'updated_at': datetime.datetime(2019, 11, 13, 17, 14, 1, 963404), 'created_at': datetime.datetime(2019, 11, 13, 17, 14, 1, 963373)}"]
-(hbnb) User.show()
-** instance id missing **
-(hbnb) User.show(e6ee5344-04ef-454d-84e4-ba6fc613f1b4)
-[User] (e6ee5344-04ef-454d-84e4-ba6fc613f1b4) {'id': 'e6ee5344-04ef-454d-84e4-ba6fc613f1b4', 'updated_at': datetime.datetime(2019, 11, 13, 17, 14, 1, 963404), 'created_at': datetime.datetime(2019, 11, 13, 17, 14, 1, 963373)}
-(hbnb) User.update("e6ee5344-04ef-454d-84e4-ba6fc613f1b4", "name", "Betty")
-['User', '"e6ee5344-04ef-454d-84e4-ba6fc613f1b4"', '"name"', '"Betty"']
-(hbnb) User.all()
-['[User] (e6ee5344-04ef-454d-84e4-ba6fc613f1b4) {\'"name"\': \'"Betty"\', \'id\': \'e6ee5344-04ef-454d-84e4-ba6fc613f1b4\', \'updated_at\': datetime.datetime(2019, 11, 13, 17, 14, 1, 963404), \'created_at\': datetime.datetime(2019, 11, 13, 17, 14, 1, 963373)}']
-(hbnb) User.destroy(e6ee5344-04ef-454d-84e4-ba6fc613f1b4)
-(hbnb) User.all()
-[]
-(hbnb) quit
-➜  AirBnB_clone git:(feature) ✗
-
-```
 
 ## Authors:
 
-* Ricardo Corona - @LW068
+* Nathen Willians - @Alleywaynate
 * Manuel Zambrado - @mnlazs
+* Dae Thomas - @
