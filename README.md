@@ -1,10 +1,10 @@
-[# THE ZEUS CLOUD]
+# The Zeus Cloud Game :joystick:
 
-## The Mission
+## The Mission	:bulb:
 
 Zeus the god of Olympus is trapped in a spiral of clouds and needs to clear Olympus of all of them. Zeus is the god of the sky and the air and he will be the only one capable of achieving this mission. You, together with him, will manage to clear the Olympus of all of them. Join in to him in this exciting adventure
 
-## Inicialization of the Game
+## Inicialization of the Game :video_game:
 
 ```
 manuelzambrano@Manuels-MacBook-Pro game % python3 mycloud.py 
@@ -13,7 +13,7 @@ manuelzambrano@Manuels-MacBook-Pro game % python3 mycloud.py
 ## Environment
 This project is interpreted/tested on Ubuntu 14.04 LTS using python3 (version 3.4.3)
 
-## File Descriptions & Assets
+## File Descriptions & Assets :mag_right:
 
 * `player.png` -  Main graphic character.
 * `Games.ttf` - Typography.
