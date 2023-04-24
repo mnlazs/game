@@ -10,6 +10,17 @@ Zeus the god of Olympus is trapped in a spiral of clouds and needs to clear Olym
 manuelzambrano@Manuels-MacBook-Pro game % python3 mycloud.py 
 ```
 
+## Environment
+This project is interpreted/tested on Ubuntu 14.04 LTS using python3 (version 3.4.3)
+
+## File Descriptions
+A brief explanation of what is the purpose of each file according to its extension
+List of extnsions:
+* `sound.mp3` - Effects and background music of the game
+* `files.png` - Game graphics
+* `mycloud.py` - main file where the code is written
+
+
 
 ## Assets:
 
