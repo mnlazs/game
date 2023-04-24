@@ -1,3 +1,5 @@
+<img src="icon.png" align="right" />
+
 # The Zeus Cloud Game :joystick:
 
 ## The Mission	:bulb:
