@@ -14,47 +14,38 @@ manuelzambrano@Manuels-MacBook-Pro game % python3 mycloud.py
 This project is interpreted/tested on Ubuntu 14.04 LTS using python3 (version 3.4.3)
 
 ## File Descriptions & Assets
-A brief explanation of what is the purpose of each file according to its extension
-List of extnsions:
-* `sound.mp3` - Effects and background music of the game
-* `files.png` - Game graphics
-* `mycloud.py` - main file where the code is written
-* `Games.ttf` - typography
 
-### Assets:
-
-
-* `player.png`
-* `Games.ttf`
-* `sound1.mp3`
-* `sound2.mp3`
-* `sound3.mp3`
-* `cloud1.png`
-* `cloud2.png`
-* `cloud3.png`
-* `cloud4.png`
-* `cloud5.png`
-* `cloud6.png`
-* `cloud7.png`
-* `cloud8.png`
-* `cloud9.png`
-* `mycloud.py`
-* `cloud10.png`
-* `cloud11.png`
-* `cloud12.png`
-* `cloud13.png`
-* `cloud14.png`
-* `cloud15.png`
-* `lasser.png`
-* `background.png`
-* `regularExplosion00.png`
-* `regularExplosion01.png`
-* `regularExplosion02.png`
-* `regularExplosion03.png`
-* `regularexgplosion04.png`
-* `regularExplosion05.png`
-* `regularExplosion06.png`
-* `regularExplosion08.png`
+* `player.png` -  Main graphic character.
+* `Games.ttf` - Typography.
+* `mycloud.py` - Code.
+* `lasser.png` - Lasser graphic.
+* `background.png` - Background graphic. 
+* `sound1.mp3` - shot sound.
+* `sound2.mp3` - Colition between the bullet and the cloud.
+* `sound3.mp3` - Background music.
+* `cloud1.png` - Dark cloud graphic.
+* `cloud2.png` - Dark cloud graphic.
+* `cloud3.png` - Dark cloud graphic.
+* `cloud4.png` - Dark cloud graphic.
+* `cloud5.png` - Dark cloud graphic.
+* `cloud6.png` - Gray cloud graphic.
+* `cloud7.png` - Gray cloud graphic.
+* `cloud8.png` - Gray cloud graphic.
+* `cloud9.png` - Gray cloud graphic.
+* `cloud10.png` - Gray cloud graphic.
+* `cloud11.png` - Light graphic cloud.
+* `cloud12.png` - Blue cloud graphic.
+* `cloud13.png` - Blue cloud graphic.
+* `cloud14.png` - Blue cloud graphic.
+* `cloud15.png` - Blue cloud graphic.
+* `regularExplosion00.png` - Explotion graphic.
+* `regularExplosion01.png` - Explotion graphic.
+* `regularExplosion02.png` - Explotion graphic.
+* `regularExplosion03.png` - Explotion graphic.
+* `regularExplosion04.png` - Explotion graphic.
+* `regularExplosion05.png` - Explotion graphic.
+* `regularExplosion06.png` - Explotion graphic.
+* `regularExplosion08.png` - Explotion graphic.
 
 
 ## Code Structure with examples
@@ -223,7 +214,7 @@ class Explosion(pygame.sprite.Sprite):
                 self.image = explosion_anim[self.frame]
                 self.rect = self.image.get_rect()
                 self.rect.center = center
-
+```
 
 ## Authors:
 
