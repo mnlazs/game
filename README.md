@@ -2,7 +2,7 @@
 
 # The Zeus Cloud Game :joystick:
 
-## The Mission	:bulb:
+## The Mission
 
 Zeus the god of Olympus is trapped in a spiral of clouds and needs to clear Olympus of all of them. Zeus is the god of the sky and the air and he will be the only one capable of achieving this mission. You, together with him, will manage to clear the Olympus of all of them. Join in to him in this exciting adventure
 
