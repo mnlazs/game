@@ -66,6 +66,13 @@ import random
 ```
 
 2.Constants such as the width and height of the screen, and colors in RGB are defined.
+‘‘‘
+WIDTH = 1138
+HEIGHT = 640
+BLACK = (0, 0, 0)
+WHITE = (255, 255, 255)
+GREEN = (0, 255, 0)
+‘‘‘
 3.Pygame and its sound mixer are initialized. Then a window is created with the defined screen size.
 4.The draw_text function is defined, which will be used later to draw text on the screen.
 5.The draw_shield_bar function is defined, which is used to display a shield bar on the screen.
